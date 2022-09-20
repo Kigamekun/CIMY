@@ -62,31 +62,23 @@ class Pegawai_model extends CI_Model
     public function save()
     {
         $data = array(
-            "Nama" => $this->input->post('Nama'),
-            "JenisKelamin" => $this->input->post('JenisKelamin'),
-            "Alamat" => $this->input->post('Alamat'),
-            "Agama" => $this->input->post('Agama'),
-            "NoHp" => $this->input->post('NoHp'),
-            "Email" => $this->input->post('Email')
+            "nip" => $this->input->post('nip'),
+            "nama" => $this->input->post('nama'),
+            "password" => md5($this->input->post('password')),
         );
         return $this->db->insert($this->table, $data);
     }
 
-    public function update()
+    public function update($id)
     {
-        $data = array(
-            "Nama" => $this->input->post('Nama'),
-            "JenisKelamin" => $this->input->post('JenisKelamin'),
-            "Alamat" => $this->input->post('Alamat'),
-            "Agama" => $this->input->post('Agama'),
-            "NoHp" => $this->input->post('NoHp'),
-            "Email" => $this->input->post('Email')
+		$data = array(
+            "nama" => $this->input->post('nama'),
         );
-        return $this->db->update($this->table, $data, array('IdMhsw' => $this->input->post('IdMhsw')));
+        return $this->db->update($this->table, $data, array('id' => $id));
     }
 
     public function delete($id)
     {
-        return $this->db->delete($this->table, array("IdMhsw" => $id));
+        return $this->db->delete($this->table, array("id" => $id));
     }
 }

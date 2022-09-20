@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>K - APP | LOGIN</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css"
         integrity="sha512-RvQxwf+3zJuNwl4e0sZjQeX7kUa3o82bDETpgVCH2RiwYSZVDdFJ7N/woNigN/ldyOOoKw8584jM4plQdt8bhA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -143,8 +143,8 @@
             <form method="POST" action="<?php echo base_url(); ?>/login" class="form">
 
                 <div class="input-group">
-                    <label for="nip">NIP</label>
-                    <input type="text" id="nip" name="nip" placeholder="Type your nip">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Type your username">
                 </div>
                 <div class="input-group">
                     <label for="password">Password</label>
