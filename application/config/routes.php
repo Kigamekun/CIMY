@@ -91,6 +91,7 @@ $route['updateJurusan/(:num)'] = 'BaseController/updateJurusan/$1';
 
 $route['createSpp'] = 'BaseController/createSpp';
 $route['printPdfSpp'] = 'BaseController/printPdfSpp';
+$route['connectSpp/(:num)'] = 'BaseController/connectSpp/$1';
 $route['updateSpp'] = 'BaseController/updateSpp';
 $route['deleteSpp/(:num)'] = 'BaseController/deleteSpp/$1';
 $route['updateSpp/(:num)'] = 'BaseController/updateSpp/$1';

@@ -80,7 +80,7 @@ class BaseController extends CI_Controller
         if (is_null($this->session->userdata('auth'))) {
             $this->load->view('auth/login');
         } else {
-            if ($this->session->userdata('user')->level == 1) {
+            if ($this->session->userdata('user')->level == "siswa") {
                 $this->load->view('page/index');
             } else {
                 $user = $this->pegawai_model->getAll();
@@ -371,6 +371,15 @@ class BaseController extends CI_Controller
     public function updateSpp($id)
     {
         $this->spp_model->update($id);
+        $this->session->set_flashdata('message', 'data berhasil di update !');
+        $this->session->set_flashdata('status', 'success');
+        return redirect('/dashboard');
+    }
+
+
+	public function connectSpp($id)
+    {
+        $this->spp_model->connectSiswaSpp($id);
         $this->session->set_flashdata('message', 'data berhasil di update !');
         $this->session->set_flashdata('status', 'success');
         return redirect('/dashboard');

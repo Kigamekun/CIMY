@@ -66,6 +66,19 @@ class Spp_model extends CI_Model
         return $this->db->update($this->table, $data, array('id' => $id));
     }
 
+
+	public function connectSiswaSpp($id)
+    {
+		$data = array(
+            "id_spp" => $this->input->post('id_spp'),
+        );
+
+
+
+        return $this->db->update('siswa', $data, array('id' => $id));
+    }
+
+
     public function delete($id)
     {
         return $this->db->delete($this->table, array("id" => $id));

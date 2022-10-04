@@ -194,107 +194,7 @@
             <!-- Main -->
             <main class="py-6 bg-surface-secondary">
                 <div class="container-fluid">
-                    <!-- Card stats -->
-                    <div class="row g-6 mb-6">
-                        <div class="col-xl-3 col-sm-6 col-12">
-                            <div class="card shadow border-0">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <span
-                                                class="h6 font-semibold text-muted text-sm d-block mb-2">Budget</span>
-                                            <span class="h3 font-bold mb-0">$750.90</span>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
-                                                <i class="bi bi-credit-card"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mt-2 mb-0 text-sm">
-                                        <span class="badge badge-pill bg-soft-success text-success me-2">
-                                            <i class="bi bi-arrow-up me-1"></i>13%
-                                        </span>
-                                        <span class="text-nowrap text-xs text-muted">Since last month</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-sm-6 col-12">
-                            <div class="card shadow border-0">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">New
-                                                projects</span>
-                                            <span class="h3 font-bold mb-0">215</span>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
-                                                <i class="bi bi-people"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mt-2 mb-0 text-sm">
-                                        <span class="badge badge-pill bg-soft-success text-success me-2">
-                                            <i class="bi bi-arrow-up me-1"></i>30%
-                                        </span>
-                                        <span class="text-nowrap text-xs text-muted">Since last month</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-sm-6 col-12">
-                            <div class="card shadow border-0">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total
-                                                hours</span>
-                                            <span class="h3 font-bold mb-0">1.400</span>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
-                                                <i class="bi bi-clock-history"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mt-2 mb-0 text-sm">
-                                        <span class="badge badge-pill bg-soft-danger text-danger me-2">
-                                            <i class="bi bi-arrow-down me-1"></i>-5%
-                                        </span>
-                                        <span class="text-nowrap text-xs text-muted">Since last month</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-sm-6 col-12">
-                            <div class="card shadow border-0">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col">
-                                            <span class="h6 font-semibold text-muted text-sm d-block mb-2">Work
-                                                load</span>
-                                            <span class="h3 font-bold mb-0">95%</span>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
-                                                <i class="bi bi-minecart-loaded"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mt-2 mb-0 text-sm">
-                                        <span class="badge badge-pill bg-soft-success text-success me-2">
-                                            <i class="bi bi-arrow-up me-1"></i>10%
-                                        </span>
-                                        <span class="text-nowrap text-xs text-muted">Since last month</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                   
-
+             
 
 
 
@@ -323,6 +223,7 @@
                                         <th scope="col">Kelas</th>
                                         <th scope="col">Alamat</th>
                                         <th scope="col">No Telphone</th>
+                                        <th scope="col">SPP</th>
                                         <th scope="col"></th>
                                     </tr>
                                 </thead>
@@ -361,7 +262,20 @@
                                             <?= $item->no_telp ?>
                                         </td>
 
+
+                                        <td>
+                                            <?= $item->id_spp ?>
+                                        </td>
+
                                         <td class="text-end">
+										<button type="button"
+                                                data-url="<?php echo base_url(); ?>connectSpp/<?= $item->id ?>"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#connectSppModal"
+                                                class="btn btn-sm btn-square btn-neutral text-danger-hover">
+                                                SPP
+                                            </button>
+
                                             <button type="button"
                                                 data-url="<?php echo base_url(); ?>updateSiswa/<?= $item->id ?>"
                                                 data-nama="<?= $item->nama ?>" data-alamat="<?= $item->alamat ?>" data-no_telp="<?= $item->no_telp ?>"   data-bs-toggle="modal"
@@ -895,6 +809,18 @@
 
 
 
+
+
+    <div class="modal fade" id="connectSppModal" tabindex="-1" aria-labelledby="connectSppModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="modal-connect">
+
+            </div>
+        </div>
+    </div>
+
+
+
     <?php if ($this->session->flashdata('message')) { ?>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
@@ -1131,6 +1057,36 @@
 `;
 
             $('#modal-spp').html(html);
+
+
+        });
+    </script>
+
+
+<script>
+        $('#connectSppModal').on('shown.bs.modal', function(e) {
+            var html = `
+    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Petugas Edit</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="${$(e.relatedTarget).data('url')}" method="post">
+                    <div class="modal-body">
+					<select class="form-control" name="id_spp">
+					<?php foreach ($spp as $item) { ?>
+                            <option value="<?= $item->id ?>"><?= $item->no_spp ?></option>
+					<?php } ?>
+					</select>
+					
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+`;
+
+            $('#modal-connect').html(html);
 
 
         });

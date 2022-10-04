@@ -212,7 +212,7 @@
                         <div class="row align-items-center">
                             <div class="col-sm-6 col-12 mb-4 mb-sm-0">
                                 <!-- Title -->
-                                <h1 class="h2 mb-0 ls-tight">Hello <?= $this->session->userdata('user')->nama ?></h1>
+                                <h1 class="h2 mb-0 ls-tight">Hello <?= $this->session->userdata('user')->username ?></h1>
                             </div>
                             <!-- Actions -->
                             <div class="col-sm-6 col-12 text-sm-end">
