@@ -33,6 +33,7 @@ class BaseController extends CI_Controller
         $this->load->model("spp_model");
         $this->load->model("pembayaran_model");
         $this->load->library('session');
+        $this->load->library('form_validation');
     }
 
 
@@ -107,6 +108,7 @@ class BaseController extends CI_Controller
     }
 
 
+	
     public function registerPegawai()
     {
         $config['upload_path'] = './uploads/';
@@ -114,17 +116,34 @@ class BaseController extends CI_Controller
 
         $this->load->library('upload', $config);
 
-        if (!$this->upload->do_upload('thumb')) {
-            $this->login_model->registerPegawaiWithoutImage();
-            $this->session->set_flashdata('message', 'data berhasil dibuat !');
-            $this->session->set_flashdata('status', 'success');
-            return redirect('/dashboard');
-        } else {
-            $this->login_model->registerPegawai();
-            $this->session->set_flashdata('message', 'data berhasil dibuat !');
-            $this->session->set_flashdata('status', 'success');
-            return redirect('/dashboard');
-        }
+
+
+		$pegawai = $this->petugas_model;
+
+		$validation = $this->form_validation;
+		$validation->set_rules($pegawai->rules());
+
+		if($validation->run()){
+			if (!$this->upload->do_upload('thumb')) {
+				$this->login_model->registerPegawaiWithoutImage();
+				$this->session->set_flashdata('message', 'data berhasil dibuat !');
+				$this->session->set_flashdata('status', 'success');
+				return redirect('/dashboard');
+			} else {
+				$this->login_model->registerPegawai();
+				$this->session->set_flashdata('message', 'data berhasil dibuat !');
+				$this->session->set_flashdata('status', 'success');
+				return redirect('/dashboard');
+			}
+		}
+
+        $this->session->set_flashdata('message', 'data tidak berhasil dibuat !');
+        $this->session->set_flashdata('status', 'error');
+        return redirect('/dashboard');
+
+
+
+		
     }
 
 
@@ -135,17 +154,32 @@ class BaseController extends CI_Controller
 
         $this->load->library('upload', $config);
 
-        if (!$this->upload->do_upload('thumb')) {
-			$this->login_model->registerSiswaWithoutImage();
-            $this->session->set_flashdata('message', 'data berhasil dibuat !');
-            $this->session->set_flashdata('status', 'success');
-            return redirect('/dashboard');
-        } else {
-            $this->login_model->registerSiswa();
-            $this->session->set_flashdata('message', 'data berhasil dibuat !');
-            $this->session->set_flashdata('status', 'success');
-            return redirect('/dashboard');
-        }
+
+		$siswa = $this->siswa_model;
+
+		$validation = $this->form_validation;
+		$validation->set_rules($siswa->rules());
+
+		if($validation->run()){
+			if (!$this->upload->do_upload('thumb')) {
+				$this->login_model->registerSiswaWithoutImage();
+				$this->session->set_flashdata('message', 'data berhasil dibuat !');
+				$this->session->set_flashdata('status', 'success');
+				return redirect('/dashboard');
+			} else {
+				$this->login_model->registerSiswa();
+				$this->session->set_flashdata('message', 'data berhasil dibuat !');
+				$this->session->set_flashdata('status', 'success');
+				return redirect('/dashboard');
+			}
+		}
+
+        $this->session->set_flashdata('message', 'data tidak berhasil dibuat !');
+        $this->session->set_flashdata('status', 'error');
+        return redirect('/dashboard');
+
+
+
     }
 
 
@@ -180,9 +214,21 @@ class BaseController extends CI_Controller
     // Jurusan
     public function createJurusan()
     {
-        $this->jurusan_model->save();
-        $this->session->set_flashdata('message', 'data berhasil dibuat !');
-        $this->session->set_flashdata('statu	s', 'success');
+		$jurusan = $this->jurusan_model;
+
+		$validation = $this->form_validation;
+		$validation->set_rules($jurusan->rules());
+
+		if($validation->run()){
+
+			$this->jurusan_model->save();
+			$this->session->set_flashdata('message', 'data berhasil dibuat !');
+			$this->session->set_flashdata('status', 'success');
+			return redirect('/dashboard');
+		}
+
+        $this->session->set_flashdata('message', 'data tidak berhasil dibuat !');
+        $this->session->set_flashdata('status', 'error');
         return redirect('/dashboard');
     }
 
@@ -263,7 +309,7 @@ class BaseController extends CI_Controller
     {
         $this->siswa_model->save();
         $this->session->set_flashdata('message', 'data berhasil dibuat !');
-        $this->session->set_flashdata('statu	s', 'success');
+        $this->session->set_flashdata('status', 'success');
         return redirect('/dashboard');
     }
 
@@ -289,10 +335,28 @@ class BaseController extends CI_Controller
     // SPP
     public function createSpp()
     {
-        $this->spp_model->save();
-        $this->session->set_flashdata('message', 'data berhasil dibuat !');
-        $this->session->set_flashdata('statu	s', 'success');
+
+		$spp = $this->spp_model;
+
+		$validation = $this->form_validation;
+		$validation->set_rules($spp->rules());
+
+		if($validation->run()){
+
+			
+			$this->spp_model->save();
+			$this->session->set_flashdata('message', 'data berhasil dibuat !');
+			$this->session->set_flashdata('status', 'success');
+			return redirect('/dashboard');
+		}
+
+        $this->session->set_flashdata('message', 'data tidak berhasil dibuat !');
+        $this->session->set_flashdata('status', 'error');
         return redirect('/dashboard');
+
+
+
+
     }
 
     public function deleteSpp($id)
@@ -311,4 +375,51 @@ class BaseController extends CI_Controller
         $this->session->set_flashdata('status', 'success');
         return redirect('/dashboard');
     }
+
+
+	public function printPdfSiswa(){
+		$this->load->library('pdf');
+		$data = $this->siswa_model->getAll();
+		$this->pdf->setPaper('A4', 'landscape');
+		$this->pdf->filename = "pdf-siswa.pdf";
+		$this->pdf->load_view('pdf/laporan-pdf-siswa', ['data'=>$data]);
+	}
+	public function printPdfPetugas(){
+		$this->load->library('pdf');
+		$data = $this->petugas_model->getAll();
+		$this->pdf->setPaper('A4', 'potrait');
+		$this->pdf->filename = "pdf-petugas.pdf";
+		$this->pdf->load_view('pdf/laporan-pdf-petugas', ['data'=>$data]);
+	}
+	public function printPdfJurusan(){
+		$this->load->library('pdf');
+		$data = $this->jurusan_model->getAll();
+		$this->pdf->setPaper('A4', 'potrait');
+		$this->pdf->filename = "pdf-jurusan.pdf";
+		$this->pdf->load_view('pdf/laporan-pdf-jurusan', ['data'=>$data]);
+	}
+
+	public function printPdfSpp(){
+		$this->load->library('pdf');
+		$data = $this->spp_model->getAll();
+		$this->pdf->setPaper('A4', 'potrait');
+		$this->pdf->filename = "pdf-spp.pdf";
+		$this->pdf->load_view('pdf/laporan-pdf-spp', ['data'=>$data]);
+	}
+
+	public function printPdfKelas(){
+		$this->load->library('pdf');
+		$data = $this->kelas_model->getAll();
+		$this->pdf->setPaper('A4', 'potrait');
+		$this->pdf->filename = "pdf-kelas.pdf";
+		$this->pdf->load_view('pdf/laporan-pdf-kelas', ['data'=>$data]);
+	}
+
+	public function printPdfPembayaran(){
+		$this->load->library('pdf');
+		$data = $this->pembayaran_model->getAll();
+		$this->pdf->setPaper('A4', 'potrait');
+		$this->pdf->filename = "pdf-pembayaran.pdf";
+		$this->pdf->load_view('pdf/laporan-pdf-pembayaran', ['data'=>$data]);
+	}
 }

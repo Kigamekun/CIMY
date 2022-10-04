@@ -5,6 +5,59 @@ class Siswa_model extends CI_Model
 {
     private $table = 'siswa';
 
+	public function rules()
+    {
+        return [
+            [
+                'field' => 'nisn',  
+                'label' => 'nisn',  
+                'rules' => 'required' 
+            ],
+			[
+                'field' => 'username',  
+                'label' => 'username',  
+                'rules' => 'required' 
+            ],
+			[
+                'field' => 'password',  
+                'label' => 'password',  
+                'rules' => 'required' 
+            ],
+		
+			[
+                'field' => 'nis',  
+                'label' => 'nis',  
+                'rules' => 'required' 
+            ],
+
+			[
+                'field' => 'nama',  
+                'label' => 'nama',  
+                'rules' => 'required' 
+            ],
+
+
+			[
+                'field' => 'id_kelas',  
+                'label' => 'id_kelas',  
+                'rules' => 'required' 
+            ],
+			[
+                'field' => 'alamat',  
+                'label' => 'alamat',  
+                'rules' => 'required' 
+            ],
+			[
+                'field' => 'no_telp',  
+                'label' => 'no_telp',  
+                'rules' => 'required' 
+            ],
+		
+			
+
+        ];
+    }
+
 
     public function getById($id)
     {

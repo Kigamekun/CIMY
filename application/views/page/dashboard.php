@@ -301,7 +301,16 @@
                     <div class="card shadow border-0 mb-7">
                         <div class="card-header">
                             <h5 class="mb-0">Siswa</h5>
-
+							<div class="d-flex justify-content-end">
+        
+		<a href="<?php echo base_url(); ?>printPdfSiswa" target="_blank" 
+			class="btn d-inline-flex btn-sm btn-primary mx-1">
+			<span class=" pe-2">
+				<i class="bi bi-plus"></i>
+			</span>
+			<span>Print</span>
+			</a>
+	</div>
                         </div>
                         <div class="table-responsive">
                             <table id="siswaTable" class="table table-hover table-nowrap">
@@ -360,7 +369,7 @@
                                                 class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                                 U
                                             </button>
-                                            <a href="<?php echo base_url(); ?>deleteSiswa/<?= $item->id ?>"
+                                            <a href="<?php echo base_url(); ?>deleteSiswa/<?= $item->id ?>" onclick="return confirm('Are you sure you want to delete this item?');"
                                                 class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                                 <i class="bi bi-trash"></i>
                                             </a>
@@ -379,7 +388,16 @@
                     <div class="card shadow border-0 mb-7">
                         <div class="card-header">
                             <h5 class="mb-0">Petugas</h5>
-
+							<div class="d-flex justify-content-end">
+        
+								<a href="<?php echo base_url(); ?>printPdfPetugas" target="_blank" 
+                                    class="btn d-inline-flex btn-sm btn-primary mx-1">
+                                    <span class=" pe-2">
+                                        <i class="bi bi-plus"></i>
+                                    </span>
+                                    <span>Print</span>
+									</a>
+                            </div>
                         </div>
                         <div class="table-responsive">
                             <table id="petugasTable" class="table table-hover table-nowrap">
@@ -410,7 +428,7 @@
                                                 class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                                 U
                                             </button>
-                                            <a href="<?php echo base_url(); ?>updatePetugas/<?= $item->id ?>"
+                                            <a href="<?php echo base_url(); ?>updatePetugas/<?= $item->id ?>" onclick="return confirm('Are you sure you want to delete this item?');"
                                                 class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                                 <i class="bi bi-trash"></i>
                                             </a>
@@ -440,6 +458,13 @@
                                     </span>
                                     <span>Create</span>
                                 </button>
+								<a href="<?php echo base_url(); ?>printPdfJurusan" target="_blank" 
+                                    class="btn d-inline-flex btn-sm btn-primary mx-1">
+                                    <span class=" pe-2">
+                                        <i class="bi bi-plus"></i>
+                                    </span>
+                                    <span>Print</span>
+									</a>
                             </div>
                         </div>
                         <div class="table-responsive">
@@ -466,7 +491,7 @@
                                                 class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                                 U
                                             </button>
-                                            <a href="<?php echo base_url(); ?>deleteJurusan/<?= $item->id ?>"
+                                            <a href="<?php echo base_url(); ?>deleteJurusan/<?= $item->id ?>" onclick="return confirm('Are you sure you want to delete this item?');"
                                                 class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                                 <i class="bi bi-trash"></i>
                                             </a>
@@ -493,6 +518,13 @@
                                     </span>
                                     <span>Create</span>
                                 </button>
+								<a href="<?php echo base_url(); ?>printPdfSpp" target="_blank" 
+                                    class="btn d-inline-flex btn-sm btn-primary mx-1">
+                                    <span class=" pe-2">
+                                        <i class="bi bi-plus"></i>
+                                    </span>
+                                    <span>Print</span>
+									</a>
                             </div>
                         </div>
                         <div class="table-responsive">
@@ -529,7 +561,7 @@
                                                 class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                                 U
                                             </button>
-                                            <a href="<?php echo base_url(); ?>deleteSpp/<?= $item->id ?>"
+                                            <a href="<?php echo base_url(); ?>deleteSpp/<?= $item->id ?>" onclick="return confirm('Are you sure you want to delete this item?');"
                                                 class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                                 <i class="bi bi-trash"></i>
                                             </a>
@@ -868,9 +900,9 @@
     <script>
         Swal.fire({
             position: 'center',
-            icon: 'success',
-            title: 'success',
-            html: 'Success !',
+            icon: <?php echo json_encode($this->session->flashdata('status')); ?>,
+            title: <?php echo json_encode($this->session->flashdata('status')); ?>,
+            html: <?php echo json_encode($this->session->flashdata('message')); ?>,
             showConfirmButton: false,
             timer: 4000
         })

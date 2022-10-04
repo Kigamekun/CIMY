@@ -227,9 +227,15 @@
                                         <span class=" pe-2">
                                             <i class="bi bi-plus"></i>
                                         </span>
-                                        <span>Create Kelas</span>
+                                        <span>Create Pembayaran</span>
                                     </button>
-
+									<a href="<?php echo base_url(); ?>printPdfKelas"
+                                        class="btn d-inline-flex btn-sm btn-primary mx-1">
+                                        <span class=" pe-2">
+                                            <i class="bi bi-plus"></i>
+                                        </span>
+                                        <span>Print</span>
+</a>
                                 </div>
                             </div>
                         </div>
@@ -359,7 +365,7 @@
                             <table class="table table-hover table-nowrap">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th scope="col">Nama</th>
+                                        <th scope="col">Date</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -423,12 +429,12 @@
                     <h5 class="modal-title" id="exampleModalLabel">Kelas Create</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="<?php echo base_url(); ?>createKelas" method="post">
-				<input type="hidden" name="jurusan_id" value="<?= $jurusan_id ?>">
+                <form action="<?php echo base_url(); ?>createPembayaran" method="post">
+				<input type="hidden" name="spp_id" value="<?= $spp_id ?>">
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Nama</label>
-                            <input type="text" name="nama" class="form-control" id="exampleFormControlInput1"
+                            <label for="exampleFormControlInput1" class="form-label">Tanggal</label>
+                            <input type="date" name="tanggal" class="form-control" id="exampleFormControlInput1"
                                 placeholder="name@example.com">
                         </div>
                     </div>

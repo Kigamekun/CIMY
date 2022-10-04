@@ -230,6 +230,14 @@
                                         <span>Create Kelas</span>
                                     </button>
 
+									<a href="<?php echo base_url(); ?>printPdfKelas"
+                                        class="btn d-inline-flex btn-sm btn-primary mx-1">
+                                        <span class=" pe-2">
+                                            <i class="bi bi-plus"></i>
+                                        </span>
+                                        <span>Print</span>
+</a>
+
                                 </div>
                             </div>
                         </div>

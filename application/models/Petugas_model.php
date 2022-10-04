@@ -5,6 +5,32 @@ class Petugas_model extends CI_Model
 {
     private $table = 'petugas';
 
+	public function rules()
+    {
+        return [
+            [
+                'field' => 'username',  
+                'label' => 'username',  
+                'rules' => 'required' 
+            ],
+			[
+                'field' => 'password',  
+                'label' => 'password',  
+                'rules' => 'required' 
+            ],
+			[
+                'field' => 'level',  
+                'label' => 'level',  
+                'rules' => 'required' 
+            ],
+			[
+                'field' => 'nama',  
+                'label' => 'nama',  
+                'rules' => 'required' 
+            ],
+			
+        ];
+    }
 
     public function getById($id)
     {

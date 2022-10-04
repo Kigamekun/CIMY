@@ -5,7 +5,17 @@ class Jurusan_model extends CI_Model
 {
     private $table = 'jurusan';
 
-
+	public function rules()
+    {
+        return [
+            [
+                'field' => 'nama',  
+                'label' => 'nama',  
+                'rules' => 'required' 
+            ],
+			
+        ];
+    }
     public function getById($id)
     {
         return $this->db->get_where($this->table, ["id" => $id])->row();

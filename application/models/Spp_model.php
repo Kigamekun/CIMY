@@ -6,6 +6,28 @@ class Spp_model extends CI_Model
     private $table = 'spp';
 
 
+	public function rules()
+    {
+        return [
+            [
+                'field' => 'no_spp',  
+                'label' => 'no_spp',  
+                'rules' => 'required' 
+            ],
+			[
+                'field' => 'tahun',  
+                'label' => 'tahun',  
+                'rules' => 'required' 
+            ],
+			[
+                'field' => 'nominal',  
+                'label' => 'nominal',  
+                'rules' => 'required' 
+            ],
+			
+        ];
+    }
+
     public function getById($id)
     {
         return $this->db->get_where($this->table, ["id" => $id])->row();

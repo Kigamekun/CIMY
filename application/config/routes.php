@@ -73,6 +73,7 @@ $route['pembayaran/(:num)'] = 'BaseController/pembayaran/$1';
 
 
 $route['createSiswa'] = 'BaseController/createSiswa';
+$route['printPdfSiswa'] = 'BaseController/printPdfSiswa';
 $route['updateSiswa'] = 'BaseController/updateSiswa';
 $route['deleteSiswa/(:num)'] = 'BaseController/deleteSiswa/$1';
 $route['updateSiswa/(:num)'] = 'BaseController/updateSiswa/$1';
@@ -81,6 +82,7 @@ $route['updateSiswa/(:num)'] = 'BaseController/updateSiswa/$1';
 
 
 $route['createJurusan'] = 'BaseController/createJurusan';
+$route['printPdfJurusan'] = 'BaseController/printPdfJurusan';
 $route['updateJurusan'] = 'BaseController/updateJurusan';
 $route['deleteJurusan/(:num)'] = 'BaseController/deleteJurusan/$1';
 $route['updateJurusan/(:num)'] = 'BaseController/updateJurusan/$1';
@@ -88,6 +90,7 @@ $route['updateJurusan/(:num)'] = 'BaseController/updateJurusan/$1';
 
 
 $route['createSpp'] = 'BaseController/createSpp';
+$route['printPdfSpp'] = 'BaseController/printPdfSpp';
 $route['updateSpp'] = 'BaseController/updateSpp';
 $route['deleteSpp/(:num)'] = 'BaseController/deleteSpp/$1';
 $route['updateSpp/(:num)'] = 'BaseController/updateSpp/$1';
@@ -95,6 +98,7 @@ $route['updateSpp/(:num)'] = 'BaseController/updateSpp/$1';
 
 
 $route['createKelas'] = 'BaseController/createKelas';
+$route['printPdfKelas'] = 'BaseController/printPdfKelas';
 $route['updateKelas'] = 'BaseController/updateKelas';
 $route['deleteKelas/(:num)/(:num)'] = 'BaseController/deleteKelas/$1/$2';
 $route['updateKelas/(:num)/(:num)'] = 'BaseController/updateKelas/$1/$2';
@@ -102,12 +106,14 @@ $route['updateKelas/(:num)/(:num)'] = 'BaseController/updateKelas/$1/$2';
 
 
 $route['createPembayaran'] = 'BaseController/createPembayaran';
+$route['printPdfPembayaran'] = 'BaseController/printPdfPembayaran';
 $route['updatePembayaran'] = 'BaseController/updatePembayaran';
 $route['deletePembayaran/(:num)/(:num)'] = 'BaseController/deletePembayaran/$1/$2';
 $route['updatePembayaran/(:num)/(:num)'] = 'BaseController/updatePembayaran/$1/$2';
 
 
 $route['createPetugas'] = 'BaseController/createPetugas';
+$route['printPdfPetugas'] = 'BaseController/printPdfPetugas';
 $route['updatePetugas'] = 'BaseController/updatePetugas';
 $route['deletePetugas/(:num)'] = 'BaseController/deletePetugas/$1';
 $route['updatePetugas/(:num)'] = 'BaseController/updatePetugas/$1';
