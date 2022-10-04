@@ -8,12 +8,12 @@
     <title>K - APP</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css"
         integrity="sha512-EZSUkJWTjzDlspOoPSpUFR0o0Xy7jdzW//6qhUkoZ9c4StFkVsp9fbbd0O06p9ELS3H486m4wmrCELjza4JEog=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
 
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
 
     <style>
         /* Webpixels CSS */
@@ -25,14 +25,14 @@
         /* Bootstrap Icons */
         @import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
     </style>
-	 <style>
+    <style>
         .dropify-wrapper .dropify-message p {
             font-size: 14px;
         }
 
-		.table-responsive {
-			padding:20px;
-		}
+        .table-responsive {
+            padding: 20px;
+        }
     </style>
 </head>
 
@@ -93,42 +93,16 @@
                                 <i class="bi bi-house"></i> Dashboard
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-bar-chart"></i> Analitycs
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-chat"></i> Messages
-                                <span
-                                    class="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-auto">6</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-bookmarks"></i> Collections
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-people"></i> Users
-                            </a>
-                        </li>
                     </ul>
                     <!-- Divider -->
                     <hr class="navbar-divider my-5 opacity-20">
                     <!-- Navigation -->
-                    
+
                     <!-- Push content down -->
                     <div class="mt-auto"></div>
                     <!-- User (md) -->
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-person-square"></i> Account
-                            </a>
-                        </li>
+
                         <li class="nav-item">
                             <a type="submit" class="nav-link" href="<?php echo base_url(); ?>/logout">
                                 <i class="bi bi-box-arrow-left"></i> Logout
@@ -175,17 +149,11 @@
                                     </button>
                                 </div>
                             </div>
-                        </div>
+                        </div>	
                         <!-- Nav -->
                         <ul class="nav nav-tabs mt-4 overflow-x border-0">
                             <li class="nav-item ">
                                 <a href="#" class="nav-link active">All files</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link font-regular">Shared</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link font-regular">File requests</a>
                             </li>
                         </ul>
                     </div>
@@ -194,29 +162,24 @@
             <!-- Main -->
             <main class="py-6 bg-surface-secondary">
                 <div class="container-fluid">
-             
-
-
-
                     <div class="card shadow border-0 mb-7">
                         <div class="card-header">
                             <h5 class="mb-0">Siswa</h5>
-							<div class="d-flex justify-content-end">
-        
-		<a href="<?php echo base_url(); ?>printPdfSiswa" target="_blank" 
-			class="btn d-inline-flex btn-sm btn-primary mx-1">
-			<span class=" pe-2">
-				<i class="bi bi-plus"></i>
-			</span>
-			<span>Print</span>
-			</a>
-	</div>
+                            <div class="d-flex justify-content-end">
+                                <a href="<?php echo base_url(); ?>printPdfSiswa" target="_blank"
+                                    class="btn d-inline-flex btn-sm btn-primary mx-1">
+                                    <span class=" pe-2">
+                                        <i class="bi bi-plus"></i>
+                                    </span>
+                                    <span>Print</span>
+                                </a>
+                            </div>
                         </div>
                         <div class="table-responsive">
                             <table id="siswaTable" class="table table-hover table-nowrap">
                                 <thead class="thead-light">
                                     <tr>
-
+                                        <th scope="col">PP</th>
                                         <th scope="col">NISN</th>
                                         <th scope="col">NIS</th>
                                         <th scope="col">Nama</th>
@@ -230,60 +193,52 @@
                                 <tbody>
                                     <?php foreach ($siswa as $item) { ?>
                                     <tr>
+									
+										<td>
+										<img src=" <?php echo base_url().'uploads/'.$item->image; ?>" style="width:40px;height:40px;border-radius:10px;" alt="">
+                                        </td>
                                         <td>
-
                                             <?= $item->nisn ?>
-
                                         </td>
                                         <td>
-
                                             <?= $item->nis ?>
-
                                         </td>
-
                                         <td>
-
                                             <?= $item->nama ?>
-
                                         </td>
-
                                         <td>
-
                                             <?= $item->id_kelas ?>
-
                                         </td>
-
                                         <td>
                                             <?= $item->alamat ?>
-
                                         </td>
-
                                         <td>
                                             <?= $item->no_telp ?>
                                         </td>
-
-
                                         <td>
                                             <?= $item->id_spp ?>
                                         </td>
-
                                         <td class="text-end">
-										<button type="button"
+											<?php if(is_null($item->id_spp)) { ?>
+
+												<button type="button"
                                                 data-url="<?php echo base_url(); ?>connectSpp/<?= $item->id ?>"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#connectSppModal"
+                                                data-bs-toggle="modal" data-bs-target="#connectSppModal"
                                                 class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                                 SPP
                                             </button>
 
+											<?php } ?>
                                             <button type="button"
                                                 data-url="<?php echo base_url(); ?>updateSiswa/<?= $item->id ?>"
-                                                data-nama="<?= $item->nama ?>" data-alamat="<?= $item->alamat ?>" data-no_telp="<?= $item->no_telp ?>"   data-bs-toggle="modal"
+                                                data-nama="<?= $item->nama ?>" data-alamat="<?= $item->alamat ?>"
+                                                data-no_telp="<?= $item->no_telp ?>" data-bs-toggle="modal"
                                                 data-bs-target="#updateSiswaModal"
                                                 class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                                 U
                                             </button>
-                                            <a href="<?php echo base_url(); ?>deleteSiswa/<?= $item->id ?>" onclick="return confirm('Are you sure you want to delete this item?');"
+                                            <a href="<?php echo base_url(); ?>deleteSiswa/<?= $item->id ?>"
+                                                onclick="return confirm('Are you sure you want to delete this item?');"
                                                 class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                                 <i class="bi bi-trash"></i>
                                             </a>
@@ -302,38 +257,35 @@
                     <div class="card shadow border-0 mb-7">
                         <div class="card-header">
                             <h5 class="mb-0">Petugas</h5>
-							<div class="d-flex justify-content-end">
-        
-								<a href="<?php echo base_url(); ?>printPdfPetugas" target="_blank" 
+                            <div class="d-flex justify-content-end">
+
+                                <a href="<?php echo base_url(); ?>printPdfPetugas" target="_blank"
                                     class="btn d-inline-flex btn-sm btn-primary mx-1">
                                     <span class=" pe-2">
                                         <i class="bi bi-plus"></i>
                                     </span>
                                     <span>Print</span>
-									</a>
+                                </a>
                             </div>
                         </div>
                         <div class="table-responsive">
                             <table id="petugasTable" class="table table-hover table-nowrap">
                                 <thead class="thead-light">
                                     <tr>
-
+                                        <th scope="col">PP</th>
                                         <th scope="col">Nama</th>
-
                                         <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($petugas as $item) { ?>
                                     <tr>
-                                        <td>
-
-                                            <?= $item->nama_petugas ?>
-
+									<td>
+										<img src=" <?php echo base_url().'uploads/'.$item->image; ?>" style="width:40px;height:40px;border-radius:10px;" alt="">
                                         </td>
-
-
-
+                                        <td>
+                                            <?= $item->nama_petugas ?>
+                                        </td>
                                         <td class="text-end">
                                             <button type="button"
                                                 data-url="<?php echo base_url(); ?>updatePetugas/<?= $item->id ?>"
@@ -342,7 +294,8 @@
                                                 class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                                 U
                                             </button>
-                                            <a href="<?php echo base_url(); ?>updatePetugas/<?= $item->id ?>" onclick="return confirm('Are you sure you want to delete this item?');"
+                                            <a href="<?php echo base_url(); ?>updatePetugas/<?= $item->id ?>"
+                                                onclick="return confirm('Are you sure you want to delete this item?');"
                                                 class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                                 <i class="bi bi-trash"></i>
                                             </a>
@@ -372,13 +325,13 @@
                                     </span>
                                     <span>Create</span>
                                 </button>
-								<a href="<?php echo base_url(); ?>printPdfJurusan" target="_blank" 
+                                <a href="<?php echo base_url(); ?>printPdfJurusan" target="_blank"
                                     class="btn d-inline-flex btn-sm btn-primary mx-1">
                                     <span class=" pe-2">
                                         <i class="bi bi-plus"></i>
                                     </span>
                                     <span>Print</span>
-									</a>
+                                </a>
                             </div>
                         </div>
                         <div class="table-responsive">
@@ -393,7 +346,8 @@
                                     <?php foreach ($jurusan as $item) { ?>
                                     <tr>
                                         <td>
-                                            <a class="text-heading font-semibold" href="<?php echo base_url(); ?>kelas/<?= $item->id ?>">
+                                            <a class="text-heading font-semibold"
+                                                href="<?php echo base_url(); ?>kelas/<?= $item->id ?>">
                                                 <?= $item->nama ?>
                                             </a>
                                         </td>
@@ -405,7 +359,8 @@
                                                 class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                                 U
                                             </button>
-                                            <a href="<?php echo base_url(); ?>deleteJurusan/<?= $item->id ?>" onclick="return confirm('Are you sure you want to delete this item?');"
+                                            <a href="<?php echo base_url(); ?>deleteJurusan/<?= $item->id ?>"
+                                                onclick="return confirm('Are you sure you want to delete this item?');"
                                                 class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                                 <i class="bi bi-trash"></i>
                                             </a>
@@ -432,13 +387,13 @@
                                     </span>
                                     <span>Create</span>
                                 </button>
-								<a href="<?php echo base_url(); ?>printPdfSpp" target="_blank" 
+                                <a href="<?php echo base_url(); ?>printPdfSpp" target="_blank"
                                     class="btn d-inline-flex btn-sm btn-primary mx-1">
                                     <span class=" pe-2">
                                         <i class="bi bi-plus"></i>
                                     </span>
                                     <span>Print</span>
-									</a>
+                                </a>
                             </div>
                         </div>
                         <div class="table-responsive">
@@ -455,10 +410,10 @@
                                     <?php foreach ($spp as $item) { ?>
                                     <tr>
                                         <td>
-
-										<a class="text-heading font-semibold" href="<?php echo base_url(); ?>pembayaran/<?= $item->id ?>">
-                                            <?= $item->no_spp ?>
-											</a>
+                                            <a class="text-heading font-semibold"
+                                                href="<?php echo base_url(); ?>pembayaran/<?= $item->id ?>">
+                                                <?= $item->no_spp ?>
+                                            </a>
                                         </td>
                                         <td>
                                             <?= $item->tahun ?>
@@ -475,7 +430,8 @@
                                                 class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                                 U
                                             </button>
-                                            <a href="<?php echo base_url(); ?>deleteSpp/<?= $item->id ?>" onclick="return confirm('Are you sure you want to delete this item?');"
+                                            <a href="<?php echo base_url(); ?>deleteSpp/<?= $item->id ?>"
+                                                onclick="return confirm('Are you sure you want to delete this item?');"
                                                 class="btn btn-sm btn-square btn-neutral text-danger-hover">
                                                 <i class="bi bi-trash"></i>
                                             </a>
@@ -486,15 +442,6 @@
                             </table>
                         </div>
                     </div>
-
-
-
-
-
-
-
-
-
                 </div>
             </main>
         </div>
@@ -522,13 +469,11 @@
                             <input type="text" name="nama" class="form-control" id="exampleFormControlInput1"
                                 placeholder="name@example.com">
                         </div>
-
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Password</label>
                             <input type="password" name="password" class="form-control"
                                 id="exampleFormControlInput1">
                         </div>
-
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -552,14 +497,13 @@
                     <h5 class="modal-title" id="siswaModalLabel">Siswa Create</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="<?php echo base_url(); ?>/registerSiswa" method="post">
+                <form action="<?php echo base_url(); ?>/registerSiswa" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Username</label>
                             <input type="text" name="username" class="form-control" id="exampleFormControlInput1"
                                 placeholder="username">
                         </div>
-
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Nama</label>
                             <input type="text" name="nama" class="form-control" id="exampleFormControlInput1"
@@ -585,29 +529,23 @@
                             <input type="text" name="no_telp" class="form-control" id="exampleFormControlInput1"
                                 placeholder="no telphone">
                         </div>
-
-
-						<div class="mb-3">
+                        <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Kelas</label>
                             <select name="id_kelas" id="" class="form-select">
-								<option value="">Select Kelas</option>
-							<?php foreach($kelas as $kls){ ?>
-
-<option value="<?= $kls->id ?>"><?= $kls->nama ?></option>
-
-<?php } ?>
-							</select>
+                                <option value="">Select Kelas</option>
+                                <?php foreach($kelas as $kls){ ?>
+                                <option value="<?= $kls->id ?>"><?= $kls->nama ?></option>
+                                <?php } ?>
+                            </select>
                         </div>
-
-
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Password</label>
                             <input type="password" name="password" class="form-control"
                                 id="exampleFormControlInput1">
                         </div>
-						<div class="mb-3">
-							<input type="file" name="thumb" id="" class="dropify">
-						</div>
+                        <div class="mb-3">
+                            <input type="file" name="thumb" id="" class="dropify">
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -631,20 +569,16 @@
                 </div>
                 <form action="<?php echo base_url(); ?>/registerPegawai" method="post" enctype="multipart/form-data">
                     <div class="modal-body">
-
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Nama</label>
                             <input type="text" name="nama" class="form-control" id="exampleFormControlInput1"
                                 placeholder="name@example.com">
                         </div>
-
-
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Username</label>
                             <input type="text" name="username" class="form-control" id="exampleFormControlInput1"
                                 placeholder="name@example.com">
                         </div>
-
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Password</label>
                             <input type="password" name="password" class="form-control"
@@ -658,10 +592,9 @@
                                 <option value="petugas">Petugas</option>
                             </select>
                         </div>
-
-						<div class="mb-3">
-							<input type="file" name="thumb" id="" class="dropify">
-						</div>
+                        <div class="mb-3">
+                            <input type="file" name="thumb" id="" class="dropify">
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -722,13 +655,11 @@
                             <input type="text" name="no_spp" class="form-control" id="exampleFormControlInput1"
                                 placeholder="name@ym">
                         </div>
-
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Tahun</label>
                             <input type="date" name="tahun" class="form-control" id="exampleFormControlInput1"
                                 placeholder="name@ym">
                         </div>
-
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Nominal</label>
                             <input type="number" name="nominal" class="form-control" id="exampleFormControlInput1"
@@ -769,7 +700,8 @@
 
 
 
-    <div class="modal fade" id="updatePetugasModal" tabindex="-1" aria-labelledby="updatePetugasModalLabel" aria-hidden="true">
+    <div class="modal fade" id="updatePetugasModal" tabindex="-1" aria-labelledby="updatePetugasModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content" id="modal-petugas">
 
@@ -779,7 +711,8 @@
 
 
 
-    <div class="modal fade" id="updateSiswaModal" tabindex="-1" aria-labelledby="updateSiswaModalLabel" aria-hidden="true">
+    <div class="modal fade" id="updateSiswaModal" tabindex="-1" aria-labelledby="updateSiswaModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content" id="modal-siswa">
 
@@ -787,7 +720,8 @@
         </div>
     </div>
 
-    <div class="modal fade" id="updateJurusanModal" tabindex="-1" aria-labelledby="updateJurusanModalLabel" aria-hidden="true">
+    <div class="modal fade" id="updateJurusanModal" tabindex="-1" aria-labelledby="updateJurusanModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content" id="modal-jurusan">
 
@@ -799,7 +733,8 @@
 
 
 
-    <div class="modal fade" id="updateSppModal" tabindex="-1" aria-labelledby="updateSppModalLabel" aria-hidden="true">
+    <div class="modal fade" id="updateSppModal" tabindex="-1" aria-labelledby="updateSppModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content" id="modal-spp">
 
@@ -811,7 +746,8 @@
 
 
 
-    <div class="modal fade" id="connectSppModal" tabindex="-1" aria-labelledby="connectSppModalLabel" aria-hidden="true">
+    <div class="modal fade" id="connectSppModal" tabindex="-1" aria-labelledby="connectSppModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content" id="modal-connect">
 
@@ -822,20 +758,22 @@
 
 
     <?php if ($this->session->flashdata('message')) { ?>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-        Swal.fire({
-            position: 'center',
-            icon: <?php echo json_encode($this->session->flashdata('status')); ?>,
-            title: <?php echo json_encode($this->session->flashdata('status')); ?>,
-            html: <?php echo json_encode($this->session->flashdata('message')); ?>,
-            showConfirmButton: false,
-            timer: 4000
-        })
-    </script>
-    <?php } ?>
 
-
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script>
+			Swal.fire({
+				position: 'center',
+				icon: <?php echo json_encode($this->session->flashdata('status')); ?>,
+				title: <?php echo json_encode($this->session->flashdata('status')); ?>,
+				html: <?php echo json_encode($this->session->flashdata('message')); ?>,
+				showConfirmButton: false,
+				timer: 4000
+			})
+		</script>
+	
+		<?php } ?>
+	
+	
 
 
 
@@ -846,34 +784,34 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
         crossorigin="anonymous"></script>
 
-<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
 
-		<script>
-			$(document).ready(function () {
-    $('#siswaTable').DataTable();
-});
-		</script>
+    <script>
+        $(document).ready(function() {
+            $('#siswaTable').DataTable();
+        });
+    </script>
 
-<script>
-			$(document).ready(function () {
-    $('#petugasTable').DataTable();
-});
-		</script>
+    <script>
+        $(document).ready(function() {
+            $('#petugasTable').DataTable();
+        });
+    </script>
 
-<script>
-			$(document).ready(function () {
-    $('#jurusanTable').DataTable();
-});
-		</script>
+    <script>
+        $(document).ready(function() {
+            $('#jurusanTable').DataTable();
+        });
+    </script>
 
-<script>
-			$(document).ready(function () {
-    $('#sppTable').DataTable();
-});
-		</script>
+    <script>
+        $(document).ready(function() {
+            $('#sppTable').DataTable();
+        });
+    </script>
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"
         integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
@@ -912,7 +850,7 @@
 
 
 
-<script>
+    <script>
         $('#updatePetugasModal').on('shown.bs.modal', function(e) {
             var html = `
     <div class="modal-header">
@@ -926,8 +864,6 @@
                             <input type="text" name="nama" value="${$(e.relatedTarget).data('nama')}" class="form-control" id="exampleFormControlInput1"
                                 placeholder="name@example.com">
                         </div>
-
-
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -945,7 +881,7 @@
 
 
 
-<script>
+    <script>
         $('#updateSiswaModal').on('shown.bs.modal', function(e) {
             var html = `
     <div class="modal-header">
@@ -959,7 +895,6 @@
                             <input type="text" name="nama" value="${$(e.relatedTarget).data('nama')}" class="form-control" id="exampleFormControlInput1"
                                 placeholder="name@example.com">
                         </div>
-
 						<div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Alamat</label>
                             <input type="text" name="alamat" value="${$(e.relatedTarget).data('alamat')}" class="form-control" id="exampleFormControlInput1"
@@ -987,7 +922,7 @@
 
 
 
-<script>
+    <script>
         $('#updateJurusanModal').on('shown.bs.modal', function(e) {
             var html = `
     <div class="modal-header">
@@ -1001,8 +936,6 @@
                             <input type="text" name="nama" value="${$(e.relatedTarget).data('nama')}" class="form-control" id="exampleFormControlInput1"
                                 placeholder="name@example.com">
                         </div>
-
-
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -1022,7 +955,7 @@
 
 
 
-<script>
+    <script>
         $('#updateSppModal').on('shown.bs.modal', function(e) {
             var html = `
     <div class="modal-header">
@@ -1036,13 +969,11 @@
                             <input type="text" name="no_spp" class="form-control" value="${$(e.relatedTarget).data('no_spp')}" id="exampleFormControlInput1"
                                 placeholder="name@ym">
                         </div>
-
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Tahun</label>
                             <input type="date" name="tahun" class="form-control" value="${$(e.relatedTarget).data('tahun')}" id="exampleFormControlInput1"
                                 placeholder="name@ym">
                         </div>
-
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Nominal</label>
                             <input type="number" name="nominal" class="form-control" value="${$(e.relatedTarget).data('nominal')}" id="exampleFormControlInput1"
@@ -1063,7 +994,7 @@
     </script>
 
 
-<script>
+    <script>
         $('#connectSppModal').on('shown.bs.modal', function(e) {
             var html = `
     <div class="modal-header">
@@ -1077,7 +1008,6 @@
                             <option value="<?= $item->id ?>"><?= $item->no_spp ?></option>
 					<?php } ?>
 					</select>
-					
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -1087,8 +1017,6 @@
 `;
 
             $('#modal-connect').html(html);
-
-
         });
     </script>
 </body>
